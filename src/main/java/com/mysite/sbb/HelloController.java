@@ -10,4 +10,10 @@ public class HelloController {
 	public String hello() {
 		return "점프 투 스프링 부트";
 	}
+	
+	@GetMapping("/sbs")
+	@ResponseBody
+	public String index() {
+		return "영원히";
+	}
 }
