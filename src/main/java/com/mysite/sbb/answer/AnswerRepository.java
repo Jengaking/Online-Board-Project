@@ -1,4 +1,4 @@
-package com.mysite.sbb;
+package com.mysite.sbb.answer;
 
 import org.springframework.data.jpa.repository.JpaRepository; // CURD 작업을 위한 리포지토리
 

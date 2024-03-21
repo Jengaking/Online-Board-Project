@@ -1,7 +1,9 @@
-package com.mysite.sbb;
+package com.mysite.sbb.question;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import com.mysite.sbb.answer.Answer;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -16,7 +18,7 @@ import lombok.Setter;
 
 
 @Getter
-@Setter // 일반적인 경우 엔티티 클래스에 Setter는 안전하지 않다.
+@Setter // 일반적인 경우 엔티티 클래스에 Setter는 안전하지 않다. -> 보통 생성자를 이용한다.
 @Entity // 엔티티로 만든다.
 public class Question {
 	@Id // 이 속성을 기본키로 한다.
