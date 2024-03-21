@@ -6,9 +6,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		<!-- th 는 Thymeleaf 속성을 표기할 때 이용한다.-->
 		<tr th:each="question : ${questionList}">
-			<td th:text="${question.subject}"></td>
+			<td>
+				<a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+			</td>
 			<td th:text="${question.createDate}"></td>
 		</tr>
 	</tbody>
