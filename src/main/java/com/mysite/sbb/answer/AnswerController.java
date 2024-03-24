@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import org.springframework.validation.BindingResult;
+import jakarta.validation.Valid;
+
 import com.mysite.sbb.question.Question;
 import com.mysite.sbb.question.QuestionService;
 
@@ -21,9 +24,13 @@ public class AnswerController {
 	private final AnswerService answerService;
 	
 	@PostMapping("/create/{id}") // value = 는 생략 가능하다.
-	public String createAnswer(Model model, @PathVariable("id") Integer id, @RequestParam(value="content") String content) {
+	public String createAnswer(Model model, @PathVariable("id") Integer id, @Valid AnswerForm answerForm, BindingResult bindingResult) {
 		Question question = this.questionService.getQuestion(id);
-		answerService.create(question, content);
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("question", question);
+			return String.format("redirect:/question/detail/%s", id);
+		}
+		answerService.create(question, answerForm.getContent());
 		return String.format("redirect:/question/detail/%s", id);
 	}
 }    

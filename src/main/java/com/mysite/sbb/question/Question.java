@@ -34,5 +34,6 @@ public class Question {
 	private LocalDateTime createDate;
 	
 	@OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
-	private List<Answer> answerList;
+	private List<Answer> answerList; // 이 리스트 요소들을 읽는 것은 getter가 호출되었을 경우이다. Lazy 방식
+	// 반대로 answer에서 question은 answer를 검색할 시기에 함께 전달된다. Eager 방식
 }
