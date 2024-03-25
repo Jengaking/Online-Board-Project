@@ -21,7 +21,7 @@ import com.mysite.sbb.question.QuestionRepository;
 @SpringBootTest
 class SbbApplicationTests {
 	@Autowired // 의존성 주입. spring이 객체를 대신 생성하여 주입하는 기법
-	private QuestionRepository questionRepository; // 내가 만든 리포지토리 인터페이스 -> JpaRepository 인터페이스 상송
+	private QuestionRepository questionRepository; // 내가 만든 리포지토리 인터페이스 -> JpaRepository 인터페이스 상속
 	
 	@Autowired
 	private AnswerRepository answerRepository;

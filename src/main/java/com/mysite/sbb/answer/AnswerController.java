@@ -28,7 +28,7 @@ public class AnswerController {
 		Question question = this.questionService.getQuestion(id);
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("question", question);
-			return String.format("redirect:/question/detail/%s", id);
+			return "question_detail";
 		}
 		answerService.create(question, answerForm.getContent());
 		return String.format("redirect:/question/detail/%s", id);
